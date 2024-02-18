@@ -1,0 +1,54 @@
+<header class="text-center p-3 p-4">
+    <h1 class="display-5 fw-bold">QuizMania</h1>
+    <p class="fs-4">Explorez notre collection de quiz passionnants et testez vos connaissances!</p>
+</header>
+
+<section class="container">
+
+        <!-- QUIZZ PERSONNALISE -->
+        <section class="bg-body-tertiary border rounded-3 p-2 mb-3 generatingQuizz">
+            <div class="container-fluid py-2">
+                <h2 class="display-6 fw-bold">Quiz personnalisés</h2>
+                <p class="col-lg-6 fs-5"> personnalisez votre expérience en déterminant le nombre de questions et en sélectionnant les catégories qui suscitent votre intérêt. . Lancez-vous dans votre propre défi intellectuel dès à présent !</p>
+                <a class="btn btn-success btn-lg" routerLink="/quizz/games/custom-quiz">Quiz Personnalisé</a>
+            </div>
+        </section>
+
+    <section class="container bg-body-tertiary border rounded-3 p-2 mb-3">
+        <h2 class="display-6 fw-bold">Quiz Populaires</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4 py-2">
+                <div class="card">
+                    <img src="assets/capitales_du_monde.png" class="card-img-top" alt="Quiz Capitales du Monde">
+                    <div class="card-body">
+                        <h3 class="card-title fs-2">Capitales du Monde</h3>
+                        <p class="card-text fs-5">Testez vos connaissances sur les capitales du monde.</p>
+                        <a class="btn btn-primary btn-lg" routerLink="/quizz/games/1">Commencer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 py-2">
+                <div class="card">
+                    <img src="assets/evenements_cles.jpg" class="card-img-top"
+                        alt="Quiz Événements Clés de l'Histoire Mondiale">
+                    <div class="card-body">
+                        <h3 class="card-title fs-2">Événements Clés de l'Histoire Mondiale</h3>
+                        <p class="card-text fs-5">Testez vos connaissances sur les événements clés qui ont façonné le
+                            monde.
+                        </p>
+                        <a class="btn btn-primary btn-lg" routerLink="/quizz/games/2">Commencer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-body-tertiary border rounded-3 p-2 mb-3">
+        <div class="container-fluid py-2  d-flex flex-column">
+            <h2 class="fs-2 fw-bold align-self-end">Créez Votre Propre Quiz!</h2>
+            <p class="col-md-8 fs-4 align-self-end text-end">Partagez vos connaissances en créant votre propre quiz
+                personnalisé. C'est facile et amusant!</p>
+            <a class="btn btn-success btn-lg align-self-end" routerLink="/quizz/games/create-quiz">Créer un Quiz</a>
+        </div>
+    </section>

@@ -1,0 +1,14 @@
+<div class="d-flex rounded shadow p-4 mt-3">
+    <div class="me-3">
+        <fa-icon [icon]="faThumbsUp" class="text-success fa-3x"
+        *ngIf="question.answers[userAnswersIndex].title == answersValidText; else lost"></fa-icon>
+    <ng-template #lost>
+        <fa-icon [icon]="faThumbsDown" class="text-danger fa-3x"></fa-icon>
+    </ng-template>
+    </div>
+    <p>
+        A la question : <span class="fw-bold"> {{ question.title }}</span>
+        <br>Vous avez répondu : {{ question.answers[userAnswersIndex].title }}
+        <br>La bonne réponse était : {{ answersValidText }}
+    </p>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <header class="text-center">
+        <h2 class="display-5 fw-bold py-4">Quiz Personnalisé</h2>
+        <p class="fs-4">Explorez sans limites <br> Concevez Votre Quiz pour une Aventure de Connaissances Unique!</p>
+    </header>
+
+    <!-- Composant formulaire personnalisation du quizz -->
+    <app-form-custom-quiz (customGameQuizz)="findCustom($event)" *ngIf="!customHidden"></app-form-custom-quiz>
+
+    <!-- Affiche les questions une a une -->
+    <div class="container mt-5" *ngIf="gameData && !showResults">
+
+        <div class="container my-5" *ngIf="gameData">
+            <!-- Titre de la partie -->
+            <h2>{{gameData.title}}</h2>
+            <!-- Enoncé de la question -->
+            <h4 class="fw-bold">N° {{currentQuestionIndex + 1}} - {{ gameData.questions[currentQuestionIndex].title }}</h4>
+            <!-- Affiche les réponses possibles -->
+            <div *ngFor="let answer of gameData.questions[currentQuestionIndex].answers; let i = index" class="fs-4 p-2 border">
+                <label class="fs-5">
+                    <input type="radio" name="answer" (change)="selectAnswer(i)">
+                    {{ answer.title }}
+                </label>
+            </div>
+            <!-- Bouton pour passer a la question suivante -->
+            <button class="btn btn-primary mt-3" (click)="nextQuestion()">Question Suivante</button>
+        </div>
+    </div>
+
+    <!-- En fin de partie, affiche les résultats -->
+    <div class="container mt-5" *ngIf="showResults">
+        <h2 class="display-6 fw-bold p-4">Score : {{ score }}/{{ gameData.questions.length }}</h2>
+
+        <!-- Afficher les réponses de l'utilisateur et les bonnes réponses pour chaque question -->
+        <div *ngFor="let question of gameData.questions; let i = index">
+            <app-game-detail-result [question]="question" [questionIndex]="i"
+                [userAnswersIndex]="userAnswers[i]"></app-game-detail-result>
+        </div>
+    </div>
+</div>

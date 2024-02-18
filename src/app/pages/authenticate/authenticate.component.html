@@ -1,0 +1,85 @@
+
+<section>
+  <div class="container my-5">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="assets/images/divers/auth.jpg" alt="">
+        <div class="text">
+          <span class="text-1">Prêt à défier vos connaissances et relever des défis passionnants?</span>
+          <span class="text-2">Votre prochaine découverte commence ici !</span>
+        </div>
+      </div>
+      <div class="back">
+        <div class="text">
+          <span class="text-1">Prêt à défier vos connaissances et relever des défis passionnants?</span>
+          <span class="text-2">Votre prochaine découverte commence ici !</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+      <div class="form-content">
+        <div class="login-form">
+          <div class="title">S'authentifier</div>
+          <form #formAuth="ngForm" (ngSubmit)="loggedIn(formAuth)">
+            <div class="input-boxes">
+
+              <div class="input-box">
+                <fa-icon [icon]="faEnvelope" class="text-success"></fa-icon>
+                <input ngModel name="email" type="email" placeholder="Entrez votre email">
+              </div>
+              <small class="text-danger" *ngIf="errors['email']">{{ errors['email'] }}</small>
+
+              <div class="input-box">
+                <fa-icon [icon]="faLock" class="text-success"></fa-icon>
+                <input ngModel name="password" type="password" placeholder="Entrez votre mot de passe">
+              </div>
+              <small class="text-danger" *ngIf="errors['password']">{{ errors['password'] }}</small>
+
+              <div class="text"><a>Mot de passe oublié?</a></div>
+
+              <div class="button input-box">
+                <input type="submit" value="Me connecter">
+              </div>
+
+              <div class="text sign-up-text">Vous n'avez pas de compte? <label for="flip"(click)="emptyErrors()">S'inscrire maintenant</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="signup-form">
+          <div class="title">S'inscrire</div>
+          <form #formRegister="ngForm" (ngSubmit)="registration(formRegister)">
+            <div class="input-boxes">
+
+              <div class="input-box">
+                <fa-icon [icon]="faUser" class="text-success"></fa-icon>
+                <input ngModel name="pseudo" type="text" placeholder="Entrez votre pseudo">
+              </div>
+
+              <div class="input-box">
+                <fa-icon [icon]="faEnvelope" class="text-success"></fa-icon>
+                <input ngModel name="email" type="email" placeholder="Entrez votre email">
+              </div>
+              <small class="text-danger" *ngIf="errors['email']">{{ errors['email'] }}</small>
+
+              <div class="input-box">
+                <fa-icon [icon]="faLock" class="text-success"></fa-icon>
+                <input ngModel name="password" type="password"
+                  placeholder="Entrez votre mot de passe">
+              </div>
+              <small class="text-danger" *ngIf="errors['password']">{{ errors['password'] }}</small>
+
+              <div class="button input-box">
+                <input type="submit" value="M'inscrire">
+              </div>
+
+              <small class="text-danger">Vous avez déjà un compte? <label for="flip" (click)="emptyErrors()">Connecte-toi
+                  maintenant</label></small>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

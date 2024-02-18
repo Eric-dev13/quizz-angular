@@ -1,0 +1,29 @@
+<form (ngSubmit)="startCustomQuiz(customQuizForm)" #customQuizForm="ngForm">
+    <div class="mb-3 p-4">
+        <div class="mb-4">
+            <h5 class="p-3 text-light bg-dark bg-opacity-75 bg-gradient">Sélectionnez le nombre de questions que vous souhaitez inclure dans votre
+                quiz.</h5>
+            <p class="fw-bold">Gardez à l'esprit que plus il y a de questions, plus le défi sera grand. Faites votre
+                choix
+                judicieusement et profitez pleinement de votre expérience de quiz!</p>
+            <div class="input-group input-group-lg">
+                <span class="input-group-text" id="spanNumberOfQuestions">Nombre de Questions</span>
+                <input type="number" class="form-control" id="numberOfQuestions" name="numberOfQuestions"
+                    [(ngModel)]="numberOfQuestions" required>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <h5 class="p-3 text-light bg-dark bg-opacity-75 bg-gradient">Choisir une catégorie.</h5>
+            <p class="fw-bold">Sélectionnez parmi nos différentes catégories et testez vos connaissances dans le domaine
+                qui
+                vous passionne le plus!</p>
+            <select class="form-select form-select-lg" size="8" id="categories" name="categories"
+                [(ngModel)]="selectedCategories" multiple>
+                <!-- Liste des catégories disponibles -->
+                <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary">Générer le Quiz</button>
+    </div>
+</form>

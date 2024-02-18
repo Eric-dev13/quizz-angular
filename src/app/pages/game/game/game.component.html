@@ -1,0 +1,31 @@
+<div class="container mt-5" *ngIf="gameData && !showResults">
+    <div class="container mt-5" *ngIf="gameData">
+        <h1>{{gameData.title}}</h1>
+
+        <h2>N° {{currentQuestionIndex + 1}} - {{ gameData.questions[currentQuestionIndex].title }}</h2>
+
+        <div *ngFor="let answer of gameData.questions[currentQuestionIndex].answers; let i = index">
+            <label>
+                <input type="radio" name="answer" (change)="selectAnswer(i)">
+                {{ answer.title }}
+            </label>
+        </div>
+
+        <button class="btn btn-primary mt-3" (click)="nextQuestion()">Question Suivante</button>
+
+        <!-- <div *ngIf="userAnswers[currentQuestionIndex] !== undefined">
+            <p>Votre réponse : {{ gameData.questions[currentQuestionIndex].answers[userAnswers[currentQuestionIndex]].title }}</p>
+            <p *ngIf="userAnswers[currentQuestionIndex] === gameData.questions[currentQuestionIndex].answers.findIndex(answer => answer.correct)">
+                Bonne réponse!
+            </p>
+            <p *ngIf="userAnswers[currentQuestionIndex] !== gameData.questions[currentQuestionIndex].answers.findIndex(answer => answer.correct)">
+                Mauvaise réponse. La bonne réponse était : {{ gameData.questions[currentQuestionIndex].answers.find(answer => answer.correct).title }}
+            </p>
+        </div> -->
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="showResults">
+    <h2>Résultats</h2>
+    <p>Votre score : {{ score }}/{{ gameData.questions.length }}</p>
+</div>
